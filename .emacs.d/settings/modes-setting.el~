@@ -1,0 +1,41 @@
+(provide 'modes-setting)
+;;中英文混排
+(use-package pangu-spacing
+  :config
+  (global-pangu-spacing-mode 1))
+;;--------------------------------------
+
+;;writeroom
+(defun hide-all-and-focus-mode()
+    (interactive)
+	     (shell-command "tmux set status")
+	     (writeroom-mode)
+	     (focus-mode))
+;;(add-hook 'writeroom-mode-hook (lambda () (focus-mode)))
+;;--------------------------------------
+
+;; custom autosave to suppress messages
+;;
+;; For some reason `do-auto-save' doesn't work if called manually
+;; after switching off the default autosave altogether. Instead set
+;; to a long timeout so it is not called.
+(setq auto-revert-verbose nil)
+(setq auto-save-timeout 99999)
+
+;; Set up my timer
+(defvar bjm/auto-save-timer nil
+  "Timer to run `bjm/auto-save-silent'")
+
+;; Auto-save every 5 seconds of idle time
+(defvar bjm/auto-save-interval 5
+  "How often in seconds of idle time to auto-save with `bjm/auto-save-silent'")
+
+;; Function to auto save files silently
+(defun bjm/auto-save-silent ()
+  "Auto-save all buffers silently"
+  (interactive)
+  (do-auto-save t))
+
+;; Start new timer
+(setq bjm/auto-save-timer
+      (run-with-idle-timer 0 bjm/auto-save-interval 'bjm/auto-save-silent))

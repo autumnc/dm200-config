@@ -1,0 +1,16 @@
+;; Emacs-W3 HTTP cookies file
+;; Automatically generated file!!! DO NOT EDIT!!!
+
+(setq url-cookie-storage
+ '(("netcut.cn"
+  [url-cookie "netcut_session" "996m1atfn6l4dh1ob7p14p8875rs1nfm" "日 5月 24 16:58:43 2020 GMT" "/" "netcut.cn" nil])
+ (".orga.cat"
+  [url-cookie "__cfduid" "d4c4af1307f1c03f68ddf82484fe395611590333189" "Tue, 23-Jun-20 15:13:09 GMT" "/" ".orga.cat" nil]))
+)
+(setq url-cookie-secure-storage
+ 'nil)
+
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; End:
