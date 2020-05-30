@@ -36,10 +36,10 @@
     (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 
 ;;agenda 的位置
-(setq org-agenda-files (list "~/orgmode-blog/src/agenda/idea.org"
-                             "~/orgmode-blog/src/agenda/projects.org"
-                             "~/orgmode-blog/src/agenda/todo/"
-			     "~/orgmode-blog/src/journal/"))
+(setq org-agenda-files (list "~/.gtd/agenda/idea.org"
+                             "~/.gtd/agenda/projects.org"
+                             "~/.gtd/agenda/todo.org"
+			     "~/.gtd/journal/"))
 ;(setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
 
 ;;--------------------------------------
@@ -48,7 +48,7 @@
   :ensure t
   :defer t
   :custom
-  (org-journal-dir "~/orgmode-blog/src/journal/")
+  (org-journal-dir "~/.gtd/journal/")
   (org-journal-date-format "<%A, %Y %B %d>")
   :config
   (defun org-journal-file-header-func (time)
@@ -60,20 +60,6 @@
        (`monthly "#+TITLE: Monthly Journal\n#+STARTUP: folded")
        (`yearly "#+TITLE: Yearly Journal\n#+STARTUP: folded"))))
   (setq org-journal-file-header 'org-journal-file-header-func)
-
-  (defun org-journal-find-location ()
-    ;; Open today's journal, but specify a non-nil prefix argument in order to
-    ;; inhibit inserting the heading; org-capture will insert the heading.
-    (org-journal-new-entry t)
-    ;; Position point on the journal's top-level heading so that org-capture
-    ;; will add the new entry as a child entry.
-    (goto-char (point-min)))
-
-  (setq org-capture-templates
-	'(("j" "Journal entry" entry (function org-journal-find-location)
-	   "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
-	("i" "idea" entry (file+headline "~/orgmode-blog/src/agenda/idea.org" "Idea")
-	  "* %?\n %i\n %a")))  
   
   (defun org-journal-save-entry-and-exit()
   "Simple convenience function.
@@ -84,3 +70,20 @@
   (kill-buffer-and-window))
 (define-key org-journal-mode-map (kbd "C-x C-s") 'org-journal-save-entry-and-exit)
   )
+;;--------------------------------------
+;;capture模板设定
+(defun org-journal-find-location ()
+  ;; Open today's journal, but specify a non-nil prefix argument in order to
+  ;; inhibit inserting the heading; org-capture will insert the heading.
+  (org-journal-new-entry t)
+  ;; Position point on the journal's top-level heading so that org-capture
+  ;; will add the new entry as a child entry.
+  (goto-char (point-min)))
+
+(setq org-capture-templates
+      '(("j" "Journal entry" entry (function org-journal-find-location)
+	 "* %(format-time-string org-journal-time-format)%^{Title}\n%i%?")
+	("i" "Idea" entry (file+headline "~/.gtd/agenda/ideas.org" "Ideas")
+	 "* %?\n %i\n %a")
+	("t" "Todo" entry (file+headline "~/.gtd/agenda/todo.org" "Todo soon")
+	 "* TODO %? \n  %^t"))) 

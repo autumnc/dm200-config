@@ -8,9 +8,11 @@
 # and using a fixed width font as the first is strongly recommended
 #font-names=Terminus,FOT\-KikyouB Std\-TC
 #font-names=PragmataPro Mono,FZMingShiTiS:style=Bold
-font-names=Terminus,FZJuZhenXinFang Mono
+#font-names=Terminus,ming
+font-names=Terminus,FOT\-クレー Pro
+#font-names=Terminus,FZJuZhenXinFang Mono
 #font-names=Terminus,Michikusa\-StdN\-Mono
-font-size=30
+font-size=28
 
 # force font width (and/or height), usually for non-fixed width fonts
 # legal value format: n (fw_new = n), +n (fw_new = fw_old + n), -n (fw_new = fw_old - n)
@@ -44,9 +46,9 @@ screen-rotate=0
 # specify the favorite input method program to run
 #input-method=fcitx-fbterm
 #input-method=uim-fep
-#input-method=yong
+input-method=yong
 
 # treat ambiguous width characters as wide
-ambiguous-wide=yes
+ambiguous-wide=no
 export TERM="fbterm"
 echo -ne "\e]P7ffffff"

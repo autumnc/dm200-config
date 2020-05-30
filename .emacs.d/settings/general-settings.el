@@ -2,10 +2,10 @@
 
 (fset 'yes-or-no-p 'y-or-n-p);;简化确认时的输入
 ;(blink-cursor-mode 0)
-(tool-bar-mode 0);;不显示工具栏
+;(tool-bar-mode 0);;不显示工具栏
 (menu-bar-mode 0);;不显示菜单栏
-(scroll-bar-mode -1);;不显示滚动条
-(set-scroll-bar-mode nil)
+;(scroll-bar-mode -1);;不显示滚动条
+;(set-scroll-bar-mode nil)
 ;;(global-linum-mode t) ;侧边显示行号
 (column-number-mode t) ;状态栏显示行列信息
 (show-paren-mode t) ;括号匹配高亮
@@ -17,7 +17,7 @@
 (global-font-lock-mode t);;高亮
 (setq kill-ring-max 200);;设定删除保存记录为200
 (setq-default kill-whole-line t);; 在行首 C-k 时，同时删除该行。
-(setq diary-file "~/orgmode-blog/src/diary")
+(setq diary-file "~/.gtd/diary")
 ;;主题设置
 (load-theme 'ir-black t)
 ;;断句相关
@@ -30,6 +30,10 @@
 (setq require-final-newline t)
 ;;延迟加载所有的packages
 ;;(setq use-package-always-defer t)
+;;系统时间设为英文
+(setq system-time-locale "C")
+;;自动保存文件管理
+(setq backup-directory-alist (quote (("." . "~/.emacs-backups"))))
 ;;--------------------------------------
 
 ;;编码问题
@@ -50,5 +54,8 @@
 (global-set-key [f1] 'calendar) ;;F1日历与日志
 (global-set-key [f2] 'undo) ;;F2撤销
 (global-set-key [f3] 'kill-this-buffer) ;;F3关闭当前buffer
-(global-set-key [f10] 'buffer-menu) ;;F9打开buffer清单
-(global-set-key [f9] 'neotree-toggle) ;;F8打开neotree
+(global-set-key [f10] 'buffer-menu) ;;F10打开buffer清单
+(global-set-key [f9] 'neotree-toggle) ;;F9打开neotree
+;;改变set-mark的快捷键
+(global-unset-key (kbd "C-SPC"))  
+(global-set-key (kbd "M-SPC") 'set-mark-command)  

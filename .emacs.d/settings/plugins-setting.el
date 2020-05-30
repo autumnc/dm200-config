@@ -1,14 +1,14 @@
 (provide 'plugins-setting)
 
 ;;--------------------------------------
+(use-package evernote-mode)
 
 (use-package neotree
   :defer t
   :ensure t
-  :config
-  ;;neotree默认打开当前文件节点
-  (setq neo-smart-open t)
-  (setq neo-theme 'nerd2))
+  :custom
+  (neo-smart-open t
+   neo-theme 'nerd2))
 ;;--------------------------------------
 
 (use-package deft
@@ -20,7 +20,7 @@
 	deft-recursive t
 	deft-default-extension "org"
 	deft-use-filename-as-title nil
-	deft-auto-save-interval 3
+	deft-auto-save-interval 4
 	deft-auto-save-silent 1
 	deft-use-filter-string-for-filename t
 	deft-file-naming-rules '((noslash . "-")
@@ -41,5 +41,12 @@
   :config
   (setq w3m-use-favicon nil)
   (setq w3m-use-cookies t)
-  (setq w3m-home-page "http://tibiji.com/autumnc"))
+  (setq w3m-home-page "http://tibiji.com/autumnc")
+  ;;change default browser for 'browse-url'  to w3m
+  (setq browse-url-browser-function 'w3m-goto-url-new-session)
+
+  ;;change w3m user-agent to android
+  (setq w3m-user-agent "Mozilla/5.0 (Linux; U; Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.")
+)
+
 ;;--------------------------------------

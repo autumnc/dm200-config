@@ -1,2 +1,2 @@
-#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ("/home/dm200/orgmode-blog/src/journal/20200524" (5 24 2020)))
-#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ("/home/dm200/orgmode-blog/src/journal/20200524" (24265 25143 274180 976000)))
+#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ("/home/dm200/orgmode-blog/src/journal/20200525" (5 25 2020)))
+#s(hash-table size 65 test equal rehash-size 1.5 rehash-threshold 0.8125 data ("/home/dm200/orgmode-blog/src/journal/20200525" (24267 58032 954083 236000)))

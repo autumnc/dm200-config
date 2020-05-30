@@ -98,6 +98,7 @@ _j_: journal       _[_: prev        _0_: delete         _l_: linum-mode
    ("RET" nil)
    ("<prior>" nil)   
    ("i" nil)
+   ("<f10>" buffer-menu)
    ("<f11>" nil)
    ("a" nil)
    ("c" nil)))
@@ -113,7 +114,7 @@ _b_: checkbox    _lo_: open link   _ta_: table        _ls_: link store
 _SPC_: capture   _ln_: next link   _tg_: tags         _s_: search
 _d_: deadline    _lp_: prev link   _ts_: time stamp   _lt_: link display
 ----------------------------------------------------------------------
-_n_: ↓ _p_: ↑ _N_: |↓ _P_: |↑ _c_: ↕_C_: ⇕ _>_: →_<_: ← _^_: ⇑ _\-_: ⇓
+_n_: ↓ _p_: ↑ _N_: |↓ _P_: |↑ _c_: ↕ _C_: ⇕ _>_: → _<_: ← _^_: ⇑ _\-_: ⇓
   "
   ("n" outline-next-visible-heading)
   ("p" outline-previous-visible-heading)

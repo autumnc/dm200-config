@@ -48,9 +48,9 @@
     (prin1 data (current-buffer))))
 
 ;;启动默认英文
-(add-hook 'emacs-startup-hook
-	  (print-to-file "/tmp/emacs_input_status" current-input-method)
-	  (shell-command "tmux refresh-client -S"))
+;(add-hook 'emacs-startup-hook
+;	  (print-to-file "/tmp/emacs_input_status" current-input-method)
+;	  (shell-command "tmux refresh-client -S"))
 
 ;;切换改变状态
 (defun chinese-switch-status()
@@ -59,7 +59,8 @@
   (print-to-file "/tmp/emacs_input_status" current-input-method)
   (shell-command "tmux refresh-client -S"))
 
-(global-set-key (kbd "C-\\") 'chinese-switch-status)
+;(global-set-key (kbd "C-\\") 'chinese-switch-status)
+(global-set-key (kbd "C-\\") 'toggle-input-method)
 
 (setq pyim-punctuation-translate-p '(auto yes no))   ;中文使用全角标点，英文使用半角标点。
 ;;--------------------------------------

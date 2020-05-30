@@ -97,7 +97,7 @@ alias nas='smbclient //192.168.1.36/home -U harfang%19830706'
 alias emacs='/home/dm200/bin/myemacs'
 alias wifion='sudo wifi_switch on'
 alias wifioff='sudo wifi_switch off'
-
+alias timentp='sudo /usr/sbin/ntpdate cn.pool.ntp.org'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -129,7 +129,10 @@ alias tibiji="w3m tibiji.com/autumnc"
 alias qemacs="emacs -Q"
 
 #pureline
-source /home/dm200/pureline/pureline /home/dm200/.pureline.conf
+source /home/dm200/bin/pureline /home/dm200/.pureline.conf
+
+#Ims tatus
+echo Eng >/tmp/yong_status
 
 mount|grep /mnt/vfat > /dev/null
 if [ $? -eq 1 ]; then

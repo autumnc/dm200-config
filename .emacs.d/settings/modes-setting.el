@@ -9,8 +9,7 @@
 (defun hide-all-and-focus-mode()
     (interactive)
 	     (shell-command "tmux set status")
-	     (writeroom-mode)
-	     (focus-mode))
+	     (writeroom-mode))
 ;;(add-hook 'writeroom-mode-hook (lambda () (focus-mode)))
 ;;--------------------------------------
 

@@ -3,8 +3,8 @@
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
- (filename . "~/orgmode-blog/src/agenda/idea.org")
- (front-context-string . "** 字体修改备忘\n- 补全可以")
- (rear-context-string . "设置org-capture模板\n")
- (position . 27))
+ (filename . "~/.gtd/agenda/ideas.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 9))
 )
