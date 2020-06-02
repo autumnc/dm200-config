@@ -48,6 +48,9 @@
 (set-terminal-coding-system 'utf-8-unix)
 (setq locale-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
+(require 'eaw)
+(eaw-fullwidth)
+
 ;;--------------------------------------
 
 ;;快捷键

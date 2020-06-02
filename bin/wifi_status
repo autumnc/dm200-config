@@ -1,0 +1,8 @@
+#!/bin/sh
+        if [ -e /tmp/wifion ]; then
+            echo "ON"
+            exit 1
+    else
+	    echo "OFF"
+            exit 0
+        fi

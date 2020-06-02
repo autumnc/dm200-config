@@ -121,7 +121,7 @@ fi
 
 PATH=/home/dm200/bin:/opt/bin:/sbin:$PATH
 
-alias fbterm="LANG=zh_CN.UTF-8 fbterm"
+alias fbterm="LANG=zh_CN.UTF-8 /usr/bin/fbterm"
 alias agi="sudo apt-get install"
 alias acs="sudo apt-cache search"
 alias diary="diary /mnt/vfat/diary"
@@ -155,7 +155,7 @@ case $(tty) in
   /dev/tty[0-9]*)
     # $TERM must be set to fbterm before fbterm starts, AND in fbterm before tmux starts.
     export TERM='fbterm';
-    alias fbterm='LANG=zh_CN.UTF-8 fbterm'
+    alias fbterm='LANG=zh_CN.UTF-8 /usr/bin/fbterm'
     fbterm
     ;;
 # /dev/pts/* isn't always the same, but seems to always start at 0 or 1 in my config, hence the extra checks.    

@@ -8,8 +8,14 @@
      (if (looking-back "^")
          (hydra-org-template/body)
        (self-insert-command 1))))
-  (setq truncate-lines nil)) ;;自动换行
+  (setq truncate-lines nil) ;;自动换行
+  (org-bullets-mode 1)) 
 (add-hook 'org-mode-hook 'org-mode-my-init)
+;;--------------------------------------
+
+;;org-bullets
+(use-package org-bullets)
+;;--------------------------------------
 
 ;;导出为html
 (setq org-html-doctype "html5")
@@ -34,22 +40,37 @@
       (let (org-log-done org-log-states)   ; turn off logging
         (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
     (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+;;--------------------------------------
 
 ;;agenda 的位置
 (setq org-agenda-files (list "~/.gtd/agenda/idea.org"
                              "~/.gtd/agenda/projects.org"
                              "~/.gtd/agenda/todo.org"
 			     "~/.gtd/journal/"))
-;(setq org-agenda-file-regexp "\\`\\\([^.].*\\.org\\\|[0-9]\\\{8\\\}\\\(\\.gpg\\\)?\\\)\\'")
-
 ;;--------------------------------------
+
 ;;org日志设定
 (use-package org-journal
   :ensure t
   :defer t
+  :after org
+  :bind (("C-c t" . org-journal-new-entry)
+         ("C-c y" . journal-file-yesterday))
+  :preface
+  (defun get-journal-file-yesterday ()
+    "Gets filename for yesterday's journal entry."
+    (let* ((yesterday (time-subtract (current-time) (days-to-time 1)))
+           (daily-name (format-time-string "%Y%m%d" yesterday)))
+      (expand-file-name (concat org-journal-dir daily-name))))
+  
+  (defun journal-file-yesterday ()
+    "Creates and load a file based on yesterday's date."
+    (interactive)
+    (find-file (get-journal-file-yesterday)))
   :custom
   (org-journal-dir "~/.gtd/journal/")
   (org-journal-date-format "<%A, %Y %B %d>")
+  (org-journal-file-format "%Y%m%d")
   :config
   (defun org-journal-file-header-func (time)
     "Custom function to create journal header."
@@ -71,6 +92,7 @@
 (define-key org-journal-mode-map (kbd "C-x C-s") 'org-journal-save-entry-and-exit)
   )
 ;;--------------------------------------
+
 ;;capture模板设定
 (defun org-journal-find-location ()
   ;; Open today's journal, but specify a non-nil prefix argument in order to
@@ -86,4 +108,27 @@
 	("i" "Idea" entry (file+headline "~/.gtd/agenda/ideas.org" "Ideas")
 	 "* %?\n %i\n %a")
 	("t" "Todo" entry (file+headline "~/.gtd/agenda/todo.org" "Todo soon")
-	 "* TODO %? \n  %^t"))) 
+	 "* TODO %? \n  %^t")))
+;;--------------------------------------
+
+;;添加文件头模板
+(use-package org
+  :config
+  (add-to-list 'org-structure-template-alist
+	       '("m" "#+TITLE: \n#+OPTIONS: ^:nil _:nil f:nil \\n:t toc:t num:t\n#+STARTUP: showeverything"))
+;;Tags设定
+  (setq org-tag-alist '((:startgroup . nil)
+                      ("@摘抄" . nil)
+                      (:grouptags . nil)
+                      ("@历史" . nil)
+                      ("@儒学" . nil)
+                      ("@道学" . nil)
+                      ("@佛学" . nil)
+                      ("@诗歌" . nil)
+                      ("@文学" . nil)
+                      ("@制度" . nil)
+                      ("@文化" . nil)
+                      (:endgroup . nil)))
+  )
+;;--------------------------------------
+

@@ -1,0 +1,14 @@
+#!/bin/bash
+ 
+is_emacs_running=`ps aux|grep emacs|wc -l`
+input_status=`cat /tmp/emacs_input_status`
+
+if [[ ${is_emacs_running} = 1 ]]; then
+    echo "无"
+elif [[ ${input_status} = 'nil' ]];
+then
+    echo "英"
+else
+    echo "中"
+fi
+

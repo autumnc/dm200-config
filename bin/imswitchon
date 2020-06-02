@@ -1,0 +1,16 @@
+#!/bin/bash
+
+if [ -e /tmp/it-was-chinese ];then
+    rm /tmp/it-was-chinese
+fi    
+
+im_status=`/usr/bin/iconv -f gbk -t utf8 /tmp/yong_status`
+ 
+if [[ ${im_status} == "Eng" ]]; then
+    echo "Yong is deavtive"
+elif [[ ${im_status} == "英文" ]]; then
+    echo "Yong is avtive and now is engilish"
+else
+    touch /tmp/it-was-chinese
+    sudo /home/dm200/bin/uinput-inject "\t"
+fi

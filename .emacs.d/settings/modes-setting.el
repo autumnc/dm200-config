@@ -7,15 +7,15 @@
 
 ;;writeroom
 (defun hide-all-and-focus-mode()
-    (interactive)
-	     (shell-command "tmux set status")
-	     (writeroom-mode))
+  (interactive)
+  (shell-command "tmux set status")
+  (writeroom-mode))
 ;;(add-hook 'writeroom-mode-hook (lambda () (focus-mode)))
 ;;--------------------------------------
 
-(add-hook 'auto-save-hook 'auto-save-silence+)
-(defun auto-save-silence+ ()
-  (setq inhibit-message t)
-  (run-at-time 0 nil
-               (lambda ()
-                 (setq inhibit-message nil))))
+;(add-hook 'auto-save-hook 'auto-save-silence+)
+;(defun auto-save-silence+ ()
+;  (setq inhibit-message t)
+;  (run-at-time 0 nil
+;               (lambda ()
+;                 (setq inhibit-message nil))))

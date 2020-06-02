@@ -17,7 +17,7 @@
      ("gnu" . "https://elpa.emacs-china.org/gnu/"))))
  '(package-selected-packages
    (quote
-    (geeknote markdown-mode multi-term session real-auto-save-mode w3m org-journal rainbow-delimiters rainbow-mode posframe htmlize hydra writeroom-mode ir-black-theme neotree deft pangu-spacing pyim use-package diminish)))
+    (org-bullets dired-subtree which-key all-the-icons geeknote markdown-mode multi-term session real-auto-save-mode w3m org-journal rainbow-delimiters rainbow-mode posframe htmlize hydra writeroom-mode ir-black-theme neotree deft pangu-spacing pyim use-package diminish)))
 )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -26,13 +26,12 @@
  ;; If there is more than one, they won't work right.
  )
 
-(add-hook 'after-init-hook 'session-initialize)
-(desktop-save-mode t)
-
+(add-to-list 'load-path "~/.emacs.d/settings")
 ;;--------------------------------------
 (package-initialize)
-(add-to-list 'load-path "~/.emacs.d/settings")
-(require 'session)
+(use-package session)
+(add-hook 'after-init-hook 'session-initialize)
+(desktop-save-mode t)
 ;;--------------------------------------
 (setq gc-cons-threshold (* 50 1000 1000))
 ;;加载通用设置
@@ -53,7 +52,7 @@
 ;;加载org-mode设定
 (require 'org-settings)
 ;;加载输入法设置
-(require 'pyim-settings)
+;(require 'pyim-settings)
 ;;加载hydra的设置
 (require 'hydra-settings)
 

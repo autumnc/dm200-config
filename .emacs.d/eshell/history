@@ -1,2 +1,26 @@
 ls
 python d-term.py 
+(with-temp-buffer)
+(with-temp-buffer(erase-buffer)(insert-file-contents "/tmp/yong_status")(goto-char (point-min)))
+(with-temp-buffer(erase-buffer)(insert-file-contents "/tmp/yong_status")(goto-char (point-min)))
+cat /tmp/yong_status 
+(with-temp-buffer(erase-buffer)(insert-file-contents "/tmp/yong_status")(goto-char (point-min))（when (re-search-forward "Eng") nil t)
+(with-temp-buffer(erase-buffer)(insert-file-contents "/tmp/yong_status")(goto-char (point-min))(setq yong_status (current-buffer))(message yong_status))
+(with-temp-buffer(erase-buffer)(insert-file-contents "/tmp/yong_status")(goto-char (point-min))(setq yong_status (current-buffer))(message yong_status))
+(with-temp-buffer(erase-buffer)(insert-file-contents "/tmp/yong_status")(goto-char (point-min))(setq yong_status (current-buffer))(message yong_status))g_status))))(message yong_status))
+(with-temp-buffer(erase-buffer)(insert-file-contents "/tmp/yong_status")(goto-char (point-min))(setq yong_status (current-buffer))(message yong_status))
+(with-temp-buffer)(message (command-result (shell-command-to-string "iconv -f gbk -t utf8 /tmp/yong_status"))))
+(with-temp-buffer)(message (command-result (shell-command-to-string "/usr/bin/iconv -f gbk -t utf8 /tmp/yong_status"))))
+(message (command-result (shell-command-to-string "/usr/bin/iconv -f gbk -t utf8 /tmp/yong_status")))
+(message (shell-command-to-string "/usr/bin/iconv -f gbk -t utf8 /tmp/yong_status"))
+(message (shell-command-to-string "/usr/bin/iconv -f gbk -t utf8 /tmp/yong_status"))
+(message (shell-command-to-string "/usr/bin/iconv -f gbk -t utf8 /tmp/yong_status"))
+(setq yong (shell-command-to-string "/usr/bin/iconv -f gbk -t utf8 /tmp/yong_status"))(message yong)
+(setq yong (shell-command-to-string "/usr/bin/iconv -f gbk -t utf8 /tmp/yong_status"))(message yong)
+(setq yong (shell-command-to-string "/usr/bin/iconv -f gbk -t utf8 /tmp/yong_status"))
+(message yong)
+(message yong)
+ls
+cd
+ls
+exit

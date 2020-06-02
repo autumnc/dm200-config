@@ -2,42 +2,54 @@
 ;;hydra设置
 ;;主功能菜单
 (defhydra hydra-hick (:color pink
+			     :pre (shell-command "/home/dm200/bin/imswitcheng")
+			     :post (shell-command "/home/dm200/bin/imswitchback")
                              :hint nil)
-  "
-^Function^         ^Buffer^         ^Window^            ^Mode
-^^^^^^^^-----------------------------------------------------------------
-_d_: deft          _m_: menu        _1_: only this      _W_: writeroom
-_w_: w3m           _k_: kill        _s_: split          _f_: hide&focus 
-_c_: capture       _]_: next        _o_: other          _SPC_: mini vi
-_j_: journal       _[_: prev        _0_: delete         _l_: linum-mode
 "
+^^^^^^^^----------------------------------------------------------------------
+_d_: deft          _c_: capture     _1_: only this      _W_: hide bar
+_w_: w3m           _j_: journal     _o_: other          _f_: dired
+_e_: evernote      _a_: agenda      _0_: delete         _l_: linum-mode
+----------------------------------------------------------------------
+Buf: _m_: menu _k_: kill _]_: next _[_: prev _TAB_: back | _u_: undo _s_: split"
   ("d" deft :exit t)
+  ("f" dired :exit t)
+  ("a" org-agenda :exit t)
   ("w" w3m :exit t)
+  ("e" evernote-browsing-list-notebooks exit t)
   ("c" org-capture :exit t)
-  ("j" org-journal-new-entry :exit t)
+  ("j" org-journal-new-entry :after-exit (shell-command "/home/dm200/bin/imswitchback"))
   ("m" buffer-menu :exit t)
   ("k" kill-this-buffer)
   ("]" next-buffer)
   ("[" previous-buffer)
   ("1" delete-other-windows)
-  ("0" delete-window :exit t)
-  ("o" other-window :exit t)
+  ("0" delete-window)
+  ("o" other-window)
   ("s" hydra-split/body :exit t)
-  ("W" writeroom-mode :exit t)
-  ("f" hide-all-and-focus-mode :exit t)
-  ("SPC" hydra-vi/body :exit t)
-  ("l" linum-mode :toggle t :exit t)
-  ("u" undo "undo")
+  ("W" (shell-command "tmux set status"))
+  ("TAB" #'(lambda ()
+	     (interactive)
+	     (switch-to-buffer (other-buffer (current-buffer) 1))))
+  ("SPC" org-toggle-checkbox)
+  ("t" org-todo)
+  ("l" linum-mode :toggle t)
+  ("u" undo)
   ("<f11>" nil)
   ("<next>" nil)
   ("<prior>" nil)
-  ("q" quit-window "quit" :color blue :exit t))
+  ("q" quit-window :color blue))
 
 (global-set-key (kbd "<prior>") 'hydra-hick/body)
 
 ;;分割窗口
 (defhydra hydra-split
-  (:foreign-keys run :color pink :columns 2 :hint nil)
+  (:foreign-keys run
+		 :color pink
+		 :columns 2
+		 :pre (shell-command "/home/dm200/bin/imswitcheng")
+		 :post (shell-command "/home/dm200/bin/imswitchback")
+		 :hint nil)
   "Split window"
   ("h" split-window-horizontally "Horizon")
   ("v" split-window-vertically "Verticle")
@@ -50,13 +62,14 @@ _j_: journal       _[_: prev        _0_: delete         _l_: linum-mode
 
 ;;仿 vi模式
 (defun hydra-vi/pre ()
-  (set-cursor-color "#e52b50"))
+  (set-cursor-color "#e52b50")
+  (shell-command "/home/dm200/bin/imswitcheng"))
 (defun hydra-vi/post ()
   (set-cursor-color "#ffffff"))
 (global-set-key
    (kbd "<f11>")
-   (defhydra hydra-vi (:pre hydra-vi/pre
-			    :post hydra-vi/post
+   (defhydra hydra-vi (:pre (shell-command "/home/dm200/bin/imswitcheng")
+			    :post (shell-command "/home/dm200/bin/imswitchback")
 			    :foreign-keys warn
 			    :color amaranth
 			    :hint nil)
@@ -73,12 +86,16 @@ _j_: journal       _[_: prev        _0_: delete         _l_: linum-mode
    ("<home>" beginning-of-line)
    ("$" move-end-of-line)
    ("<end>" move-end-of-line)
-   ("M-SPC" scroll-down "scroll up")
-   ("SPC" scroll-up "scroll down")
+   ("<prior>" scroll-down "scroll down")
+   ("<next>" scroll-up "scroll up")
+   ("SPC" org-toggle-checkbox)
+   ("t" org-todo)
+   ("RET" org-todo :exit t)
    ("." forward-page)
    ("," backward-page)
    ("n" narrow-to-page :bind nil :exit t)
    ("gg" beginning-of-buffer)
+   ("gt" hydra-goto-line/body :exit t)
    ("G" end-of-buffer)
    (":" (progn (call-interactively 'eval-expression)))
    ("r" recenter-top-bottom)
@@ -94,50 +111,56 @@ _j_: journal       _[_: prev        _0_: delete         _l_: linum-mode
    ("W" backward-word)
    ("x" delete-char)
    ("y" kill-ring-save)
-   ("<next>" nil)
-   ("RET" nil)
-   ("<prior>" nil)   
    ("i" nil)
    ("<f10>" buffer-menu)
+   ("<f3>" kill-current-buffer)
    ("<f11>" nil)
    ("a" nil)
    ("c" nil)))
 (hydra-set-property 'hydra-vi :verbosity 1)
 
+;;goto菜单
+(defhydra hydra-goto-line (goto-map ""
+                           :pre (linum-mode 1)
+                           :post (linum-mode -1))
+  "goto-line"
+  ("g" goto-line "go")
+  ("m" set-mark-command "mark" :bind nil)
+  ("q" nil "quit"))
+
 ;;org菜单
-(defhydra hydra-org (:foreign-keys run :color red :hint nil)
+(defhydra hydra-org (:foreign-keys run
+				   :pre (shell-command "/home/dm200/bin/imswitcheng")
+				   :post (shell-command "/home/dm200/bin/imswitchback")
+				   :color red :hint nil)
   "
-^Todo^           ^Link^            ^Function^         ^Other
 ^^^^^^^^----------------------------------------------------------------------
-_td_: todo       _li_: insert link _a_: agenda        _g_: goto  
-_b_: checkbox    _lo_: open link   _ta_: table        _ls_: link store
-_SPC_: capture   _ln_: next link   _tg_: tags         _s_: search
-_d_: deadline    _lp_: prev link   _ts_: time stamp   _lt_: link display
-----------------------------------------------------------------------
-_n_: ↓ _p_: ↑ _N_: |↓ _P_: |↑ _c_: ↕ _C_: ⇕ _>_: → _<_: ← _^_: ⇑ _\-_: ⇓
-  "
-  ("n" outline-next-visible-heading)
-  ("p" outline-previous-visible-heading)
-  ("N" org-forward-heading-same-level)
-  ("P" org-backward-heading-same-level)
+Link: _I_: insert _O_: open _]_: next _[_: prev _S_: store _T_: display
+Nav\: _j_: ↓ _k_: ↑ _n_: |↓ _p_: |↑ _c_: ↕ _C_: ⇕ _l_: → _h_: ← _J_: ⇑ _K_: ⇓  
+Gtd\: _a_: _td_: _b_: SPC_: _d_: _I_: _s_: _ts_: _tg_: _ta_: _g_:
+"
+  ("j" outline-next-visible-heading)
+  ("k" outline-previous-visible-heading)
+  ("n" org-forward-heading-same-level)
+  ("p" org-backward-heading-same-level)
   ("u" outline-up-heading)
   ("c" org-cycle)
   ("C" org-global-cycle)
-  ("<" org-promote-subtree)
-  (">" org-demote-subtree)
-  ("^" org-move-subtree-up)
-  ("-" org-move-subtree-down)
+  ("h" org-promote-subtree)
+  ("l" org-demote-subtree)
+  ("J" org-move-subtree-up)
+  ("K" org-move-subtree-down)
   ("SPC" org-capture)
   ("d" org-deadline)
   ("td" org-todo)
   ("b" org-toggle-checkbox)
-  ("li" org-insert-link)
-  ("lo" org-open-link-from-string)
-  ("ln" org-next-link)
-  ("lp" org-previous-link)
-  ("ls" org-store-link)
-  ("lt" org-toggle-link-display)
-  ("a" org-agenda)
+  ("I" org-insert-link)
+  ("O" org-open-link-from-string)
+  ("]" org-next-link)
+  ("[" org-previous-link)
+  ("S" org-store-link)
+  ("T" org-toggle-link-display)
+  ("a" org-agenda :exit t)
   ("ta" org-table-create)
   ("tg" org-tags-view)
   ("ts" org-time-stamp)
@@ -150,8 +173,11 @@ _n_: ↓ _p_: ↑ _N_: |↓ _P_: |↑ _c_: ↕ _C_: ⇕ _>_: → _<_: ← _^_: �
 
 ;;deft菜单
 (defhydra hydra-deft
-  (:foreign-keys run :color pink :columns 3 :hint nil)
-  "Deft Hotkeys"
+  (:foreign-keys run
+		 :pre (shell-command "/home/dm200/bin/imswitcheng")
+		 :post (shell-command "/home/dm200/bin/imswitchback")
+		 :color pink :columns 3 :hint nil)
+"Deft Menu"
   ("n" deft-new-file "New file")
   ("N" deft-new-file-named "New file named")
   ("d" deft-delete-file "Delete")
@@ -169,7 +195,9 @@ _n_: ↓ _p_: ↑ _N_: |↓ _P_: |↑ _c_: ↕ _C_: ⇕ _>_: → _<_: ← _^_: �
   ("<prior>" nil))
 
 ;; Hydra for org agenda (graciously taken from Spacemacs)
-(defhydra hydra-org-agenda (:hint none)
+(defhydra hydra-org-agenda (:hint none
+				  :pre (shell-command "/home/dm200/bin/imswitcheng")
+				  :post (shell-command "/home/dm200/bin/imswitchback"))
   "
 Org agenda (_q_uit)
 
@@ -247,13 +275,13 @@ _vr_ reset      ^^                       ^^                 ^^
   ("gr" org-agenda-redo))
 
 ;;org-mode的插入模板设置
-(defhydra hydra-org-template (:color blue :hint nil)
+(defhydra hydra-org-template (:color blue
+				     :pre (shell-command "/home/dm200/bin/imswitcheng")
+				     :post (shell-command "/home/dm200/bin/imswitchback")
+				     :hint nil)
   "
-_c_enter  _q_uote    _L_aTeX:
-_l_atex   _e_xample  _i_ndex:
-_a_scii   _v_erse    _I_NCLUDE:
-_s_rc     ^ ^        _H_TML:
-_h_tml    ^ ^        _A_SCII:
+_s_rc  _c_enter  _q_uote      _l_atex   _e_xample  _i_ndex:  _a_scii 
+_h_tml _v_erse   _I_NCLUDE:   _L_aTeX:  _H_TML:    _A_SCII:  _m_atadata
 "
   ("s" (hot-expand "<s"))
   ("e" (hot-expand "<e"))
@@ -266,6 +294,7 @@ _h_tml    ^ ^        _A_SCII:
   ("L" (hot-expand "<L"))
   ("i" (hot-expand "<i"))
   ("I" (hot-expand "<I"))
+  ("m" (hot-expand "<m"))
   ("H" (hot-expand "<H"))
   ("A" (hot-expand "<A"))
   ("<" self-insert-command "ins")
@@ -277,9 +306,12 @@ _h_tml    ^ ^        _A_SCII:
   (org-try-structure-completion))
 
 ;;buffer-menu
-(defhydra hydra-buffer-menu (:color pink :hint nil)
+(defhydra hydra-buffer-menu (:color pink
+				    :pre (shell-command "/home/dm200/bin/imswitcheng")
+				    :post (shell-command "/home/dm200/bin/imswitchback")
+				    :hint nil)
   "
-  Mark               Unmark             Actions            Search
+  Mark               Unmark            Actions           Search
 -----------------------------------------------------------------------
 _m_: mark          _u_: unmark        _x_: execute       _R_: re-isearch
 _s_: save          _U_: unmark up     _b_: bury          _I_: isearch
@@ -308,3 +340,52 @@ _~_: modified
   ("q" quit-window "quit" :color blue :exit t))
 
 (define-key Buffer-menu-mode-map (kbd "<next>") 'hydra-buffer-menu/body)
+
+;;Dired 菜单
+(defhydra hydra-dired (:hint nil
+			     :pre (shell-command "/home/dm200/bin/imswitcheng")
+			     :post (shell-command "/home/dm200/bin/imswitchback")
+			     :color pink)
+  "
+_+_ mkdir  _v_iew         _m_ark       _(_ details     _i_nsert-subdir
+_C_opy     _O_ view other _U_nmark all _)_ omit-mode   _$_ hide-subdir
+_D_elete   _o_ pen other  _u_nmark     _l_ redisplay   _w_ kill-subdir
+_R_ename   _M_ chmod      _t_oggle     _g_ revert buf  _z_ compress-file
+_S_ymlink  _G_ chgrp      _E_xtension  _s_ marksort    _Z_ compress 
+"
+  ("\\" dired-do-ispell)
+  ("(" dired-hide-details-mode)
+  (")" dired-omit-mode)
+  ("+" dired-create-directory)
+  ("=" diredp-ediff)         ;; smart diff
+  ("?" dired-summary "Summary")
+  ("$" diredp-hide-subdir-nomove)
+  ("A" dired-do-find-regexp "Find regexp")
+  ("C" dired-do-copy)        ;; Copy all marked files
+  ("D" dired-do-delete)
+  ("E" dired-mark-extension)
+  ("e" dired-ediff-files)
+  ("F" dired-do-find-marked-files "Find Marked")
+  ("G" dired-do-chgrp)
+  ("g" revert-buffer)        ;; read all directories again (refresh)
+  ("i" dired-maybe-insert-subdir)
+  ("l" dired-do-redisplay)   ;; relist the marked or singel directory
+  ("M" dired-do-chmod)
+  ("m" dired-mark)
+  ("O" dired-display-file)
+  ("o" dired-find-file-other-window)
+  ("Q" dired-do-find-regexp-and-replace "Find & Replace")
+  ("R" dired-do-rename)
+  ("r" dired-do-rsynch)
+  ("S" dired-do-symlink)
+  ("s" dired-sort-toggle-or-edit)
+  ("t" dired-toggle-marks)
+  ("U" dired-unmark-all-marks)
+  ("u" dired-unmark)
+  ("v" dired-view-file)      ;; q to exit, s to search, = gets line #
+  ("w" dired-kill-subdir)
+  ("Y" dired-do-relsymlink)
+  ("z" diredp-compress-this-file)
+  ("Z" dired-do-compress)
+  ("q" nil)
+  ("." nil :color blue))

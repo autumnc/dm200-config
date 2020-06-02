@@ -1,0 +1,6 @@
+#!/bin/bash
+im_status=`/usr/bin/iconv -f gbk -t utf8 /tmp/yong_status`
+
+if [ -e /tmp/it-was-chinese ] && [[ ${im_status} == "英文" ]];then
+    sudo /home/dm200/bin/uinput-inject "\t"
+fi

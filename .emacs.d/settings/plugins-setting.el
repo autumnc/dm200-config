@@ -2,6 +2,7 @@
 
 ;;--------------------------------------
 (use-package evernote-mode)
+(use-package all-the-icons)
 
 (use-package neotree
   :defer t
@@ -48,5 +49,32 @@
   ;;change w3m user-agent to android
   (setq w3m-user-agent "Mozilla/5.0 (Linux; U; Android 2.3.3; zh-tw; HTC_Pyramid Build/GRI40) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.")
 )
+;;--------------------------------------
+
+;;Dired 文件管理
+(use-package dired
+  :ensure nil
+  :defer t
+  :delight "Dired "
+  :custom
+  (dired-auto-revert-buffer t)
+  (dired-dwim-target t)
+  (dired-hide-details-hide-symlink-targets nil)
+  (dired-listing-switches "-alh")
+  (dired-ls-F-marks-symlinks nil)
+  (dired-recursive-copies 'always)
+  :config
+  (define-key dired-mode-map (kbd "<next>") 'hydra-dired/body))
+(use-package dired-subtree
+  :bind (:map dired-mode-map
+              ("TAB" . dired-subtree-cycle)
+              ("SPC" . dired-subtree-toggle)))
 
 ;;--------------------------------------
+
+;;Which-key
+(use-package which-key
+  :defer 0.2
+  :delight
+  :config (which-key-mode))
+

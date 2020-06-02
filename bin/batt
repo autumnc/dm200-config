@@ -1,0 +1,8 @@
+#!/bin/bash
+ 
+battery_status=`/opt/bin/battery2`
+ 
+if [[ ${battery_status} =~ remain_capacity\ \=\ ([0-9]+),\ status ]]; then
+    remain=`expr ${BASH_REMATCH[1]} / 42`
+    echo "${remain}%"
+fi

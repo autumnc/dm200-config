@@ -1,0 +1,7 @@
+#!/bin/bash
+backlight_status=`cat /sys/class/backlight/rk28_bl/brightness`
+if [[ ${backlight_status} > 40 ]];then
+    sudo backlight 10
+else
+    sudo backlight 50
+fi
