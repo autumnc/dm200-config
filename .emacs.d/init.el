@@ -3,21 +3,30 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(all-the-icons-ibuffer-mode t)
  '(custom-safe-themes
    (quote
-    ("4780d7ce6e5491e2c1190082f7fe0f812707fc77455616ab6f8b38e796cbffa9" "af1ad7ddaafd6a4018186f85e89bb5d79612773c1c3e08f48d903072eedb6f6e" default)))
+    ("00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "7f1d414afda803f3244c6fb4c2c64bea44dac040ed3731ec9d75275b9e831fe5" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "4780d7ce6e5491e2c1190082f7fe0f812707fc77455616ab6f8b38e796cbffa9" "af1ad7ddaafd6a4018186f85e89bb5d79612773c1c3e08f48d903072eedb6f6e" default)))
+ '(dired-auto-revert-buffer t)
+ '(dired-dwim-target t)
+ '(dired-hide-details-hide-symlink-targets nil)
+ '(dired-listing-switches "-alh")
+ '(dired-ls-F-marks-symlinks nil)
+ '(dired-recursive-copies (quote always))
  '(evernote-developer-token
    "S=s65:U=e9b8ad:E=172896456fc:C=1726557cf28:P=1cd:A=en-devtoken:V=2:H=82d73eee16a224f7b4c307cad315eff8")
  '(evernote-username "yangwenzu")
- '(org-journal-date-format "<%A, %Y %B %d>" t)
- '(org-journal-dir "~/.gtd/journal/" t)
+ '(neo-smart-open t t)
+ '(org-journal-date-format "<%A, %Y %B %d>")
+ '(org-journal-dir "~/.gtd/journal/")
+ '(org-journal-file-format "%Y%m%d")
  '(package-archives
    (quote
     (("melpa" . "http://elpa.emacs-china.org/melpa/")
      ("gnu" . "https://elpa.emacs-china.org/gnu/"))))
  '(package-selected-packages
    (quote
-    (org-bullets dired-subtree which-key all-the-icons geeknote markdown-mode multi-term session real-auto-save-mode w3m org-journal rainbow-delimiters rainbow-mode posframe htmlize hydra writeroom-mode ir-black-theme neotree deft pangu-spacing pyim use-package diminish)))
+    (solarized-theme all-the-icons-ibuffer org-bullets dired-subtree which-key all-the-icons markdown-mode multi-term session real-auto-save-mode w3m org-journal rainbow-delimiters rainbow-mode posframe htmlize hydra writeroom-mode ir-black-theme neotree deft pangu-spacing pyim use-package diminish)))
 )
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

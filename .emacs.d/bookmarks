@@ -4,7 +4,7 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
  (filename . "~/.gtd/agenda/todo.org")
- (front-context-string . "** DONE 尝试解决org-")
- (rear-context-string . "2020-06-02 Tue>\n")
- (position . 1144))
+ (front-context-string . "** DONE 把状态栏改一个素")
+ (rear-context-string . "2020-06-03 Wed>\n")
+ (position . 1349))
 )

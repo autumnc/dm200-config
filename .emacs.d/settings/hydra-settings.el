@@ -6,20 +6,21 @@
 			     :post (shell-command "/home/dm200/bin/imswitchback")
                              :hint nil)
 "
-^^^^^^^^----------------------------------------------------------------------
+^^^^^^^^⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 _d_: deft          _c_: capture     _1_: only this      _W_: hide bar
 _w_: w3m           _j_: journal     _o_: other          _f_: dired
 _e_: evernote      _a_: agenda      _0_: delete         _l_: linum-mode
-----------------------------------------------------------------------
-Buf: _m_: menu _k_: kill _]_: next _[_: prev _TAB_: back | _u_: undo _s_: split"
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Buf: _m_:  k_:  _]_:  _[_:  _TAB_:  ⎮ _u_:  _s_:  _n_:  _t_:  _SPC_: "  
   ("d" deft :exit t)
   ("f" dired :exit t)
   ("a" org-agenda :exit t)
   ("w" w3m :exit t)
   ("e" evernote-browsing-list-notebooks exit t)
   ("c" org-capture :exit t)
-  ("j" org-journal-new-entry :after-exit (shell-command "/home/dm200/bin/imswitchback"))
+  ("j" org-journal-new-entry :exit t)
   ("m" buffer-menu :exit t)
+  ("n" org-add-note :exit t)  
   ("k" kill-this-buffer)
   ("]" next-buffer)
   ("[" previous-buffer)
@@ -32,7 +33,7 @@ Buf: _m_: menu _k_: kill _]_: next _[_: prev _TAB_: back | _u_: undo _s_: split"
 	     (interactive)
 	     (switch-to-buffer (other-buffer (current-buffer) 1))))
   ("SPC" org-toggle-checkbox)
-  ("t" org-todo)
+  ("t" org-todo exit t)
   ("l" linum-mode :toggle t)
   ("u" undo)
   ("<f11>" nil)
@@ -134,7 +135,7 @@ Buf: _m_: menu _k_: kill _]_: next _[_: prev _TAB_: back | _u_: undo _s_: split"
 				   :post (shell-command "/home/dm200/bin/imswitchback")
 				   :color red :hint nil)
   "
-^^^^^^^^----------------------------------------------------------------------
+^^^^^^^^⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 Link: _I_: insert _O_: open _]_: next _[_: prev _S_: store _T_: display
 Nav\: _j_: ↓ _k_: ↑ _n_: |↓ _p_: |↑ _c_: ↕ _C_: ⇕ _l_: → _h_: ← _J_: ⇑ _K_: ⇓  
 Gtd\: _a_: _td_: _b_: SPC_: _d_: _I_: _s_: _ts_: _tg_: _ta_: _g_:
@@ -312,7 +313,7 @@ _h_tml _v_erse   _I_NCLUDE:   _L_aTeX:  _H_TML:    _A_SCII:  _m_atadata
 				    :hint nil)
   "
   Mark               Unmark            Actions           Search
------------------------------------------------------------------------
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
 _m_: mark          _u_: unmark        _x_: execute       _R_: re-isearch
 _s_: save          _U_: unmark up     _b_: bury          _I_: isearch
 _d_: delete                         _g_: refresh       _O_: multi-occur

@@ -2,30 +2,66 @@
 ;; --------------------------------------------------------------------------
 ;; Desktop File for Emacs
 ;; --------------------------------------------------------------------------
-;; Created Tue Jun  2 23:30:16 2020
+;; Created Thu Jun  4 22:16:55 2020
 ;; Desktop file format version 208
 ;; Emacs version 26.3
 
 ;; Global section:
-(setq desktop-saved-frameset [frameset 1 (24278 28808 238315 832000) (desktop . "208") "dm200@dm200" nil nil ((((minibuffer . t) (tty-type . "screen-256color") (tty . "/dev/tty") (display-type . color) (background-mode . dark) (foreground-color . "#FFFFFF") (cursor-color . "#FFFAAA") (menu-bar-lines . 0) (background-color . "#000000") (font . "tty") (height . 20) (width . 73) (modeline . t) (unsplittable) (frameset--id . "FB62-F966-0F2B-6695") (frameset--mini t)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 2) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 4) (min-pixel-width . 10) (min-pixel-height-ignore . 2) (min-pixel-width-ignore . 2) (min-pixel-height-safe . 1) (min-pixel-width-safe . 2)) leaf (pixel-width . 73) (pixel-height . 19) (total-width . 73) (total-height . 19) (normal-height . 1.0) (normal-width . 1.0) (buffer "*scratch*" (selected . t) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 146) (start . 1))))])
+(setq desktop-saved-frameset [frameset 1 (24281 599 136647 703000) (desktop . "208") "dm200@dm200" nil nil ((((minibuffer . t) (tty-type . "screen-256color") (tty . "/dev/tty") (display-type . color) (background-mode . dark) (foreground-color . "#FFFFFF") (cursor-color . "#FFFAAA") (menu-bar-lines . 0) (background-color . "#000000") (font . "tty") (height . 20) (width . 73) (modeline . t) (unsplittable) (frameset--id . "EA02-84A6-F85A-7308") (frameset--mini t)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 2) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 4) (min-pixel-width . 10) (min-pixel-height-ignore . 2) (min-pixel-width-ignore . 2) (min-pixel-height-safe . 1) (min-pixel-width-safe . 2)) leaf (pixel-width . 73) (pixel-height . 19) (total-width . 73) (total-height . 19) (normal-height . 1.0) (normal-width . 1.0) (buffer ".tmux.conf" (selected . t) (hscroll . 0) (fringes 0 0 nil) (margins nil) (scroll-bars nil 0 t nil 0 t) (vscroll . 0) (dedicated) (point . 645) (start . 1))))])
 (setq desktop-missing-file-warning nil)
 (setq tags-file-name nil)
 (setq tags-table-list nil)
-(setq search-ring '("alist" "deft" "dir" "Dired" "0x" "fprin" "fprintf" "cnen" "KEY" "gray" "fp" "YongH" "Active" "CurrentID"))
+(setq search-ring '("Lig" "alist" "deft" "dir" "Dired" "0x" "fprin" "fprintf" "cnen" "KEY" "gray" "fp" "YongH" "Active" "CurrentID"))
 (setq regexp-search-ring nil)
 (setq register-alist nil)
-(setq file-name-history '("~/" "~/.emacs.d/settings/plugins-setting.el" "~/.emacs.d/settings/modes-setting.el" "~/.emacs.d/settings/hydra-settings.el" "~/.emacs.d/settings/awesome-tray.el" "~/uinput-injector/LICENSE" "~/.emacs.d/init.el" "~/.emacs.d/settings/org-settings.el" "~/.emacs.d/bookmarks" "~/.gtd/agenda/todo.org" "~/.gtd/agenda/projects.org" "~/.gtd/agenda/idea.org" "~/.emacs.d/elpa/darkroom-0.3/darkroom-autoloads.el" "~/orgmode-blog/src/Tech/dm200debian.org" "~/.fonts.conf" "~/fbterm-1.7/fbterm-1.7/src/lib/wcwidth.cpp" "~/.emacs.d/settings/eaw.el" "~/.emacs.d/elpa/org-bullets-20200317.1740/org-bullets-autoloads.el" "~/.emacs.d/elpa/olivetti-20200601.1107/olivetti-autoloads.el" "~/.emacs.d/" "~/orgmode-blog/src/about.org" "~/.w3m/w3mtmp5983-1" "~/.emacs.d/settings/general-settings.el" "~/.emacs.d/settings/" "~/orgmode-blog/src/index.org" "~/.emacs.d/elpa/dired-subtree-20180922.1615/dired-subtree-autoloads.el" "~/bin/imswitchback" "~/bin/imswitcheng" "~/bin/imswitchon" "~/bin/imswitchoff" "~/.tmux.conf" "~/imswitch" "~/bin/imswitch" "~/.fbtermrcbak" "~/.fbtermrc" "~/orgmode-blog/src/Tech/kindle‘×ö‘Êé‘±¸‘Íü.org" "~/.emacs.d/settings/pyim-settings.el" "~/" "~/.emacs.d/elpa/dired-narrow-20181114.1723/dired-narrow-autoloads.el" "~/.emacs.d/elpa/dired-hacks-utils-20190522.950/dired-hacks-utils-autoloads.el" "~/.emacs.d/elpa/dash-20200524.1947/dash-autoloads.el" "~/.emacs.d/elpa/which-key-20200216.1350/which-key-autoloads.el" "~/.gtd/journal/20200531" "~/.gtd/journal/20200601" "~/.gtd/journal/20200525" "~/test" "~/.emacs.d/elpa/all-the-icons-20200526.751/all-the-icons-autoloads.el" "~/fbterm-1.7/fbterm-1.7/src/fbconfig.cpp" "~/fbterm-1.7/fbterm-1.7/src/fbshell.h" "~/fbterm-1.7/fbterm-1.7/src/fbshell.cpp" "~/.w3m/w3mtmp1717-2" "~/fbterm-master-bak/src/lib/wcwidth.cpp" "~/fbterm-master/src/lib/wcwidth.cpp" "~/fbterm/fbterm-1.7/src/lib/wcwidth.cpp" "~/orgmode-blog/src/digest/‘¿´‘²»‘¼û‘µÄ‘³Ç‘ÊÐ.org" "~/orgmode-blog/src/Notes/‘ÀÎ‘É§.org" "~/yong-master/common/main.c" "~/yong-master/common/common.c" "~/uinput-injector/uinput-inject.c" "~/uinput-injector/uinput-inject" "~/uinput-injector/uinput-key.c" "~/orgmode-blog/src/digest.org" "~/orgmode-blog/src/tech.org" "~/orgmode-blog/src/Blog/‘ÀÎ‘É§.org" "~/orgmode-blog/src/digest/‘Â³‘Ã×.org" "~/orgmode-blog/src/digest/‘Úë‘Óà‘´Ô‘¿¼.org" "~/orgmode-blog/src/digest/‘ÇÙ‘Ê·.org" "~/orgmode-blog/src/digest/‘ºº‘Êé‘ÐÂ‘×¢.org" "~/orgmode-blog/src/digest/‘ÔÓ‘³­.org" "~/orgmode-blog/src/digest/‘Ö¾‘¹Ö‘Àà.org" "~/orgmode-blog/src/digest/‘Ø¥‘¶þ‘Ê·‘Ôý‘¼Ç.org" "~/orgmode-blog/src/digest/‘ÈÝ‘Õ«‘Ëæ‘±Ê.org" "~/orgmode-blog/src/digest/‘ÖÜ‘Ò×‘¼¯‘×¢.org" "~/orgmode-blog/src/digest/‘Åå‘Ë÷‘°¢.org" "~/orgmode-blog/src/digest/kindle‘×ö‘Êé‘±¸‘Íü.org" "~/orgmode-blog/src/Blog/‘ÇØ‘ºº‘¾ô‘¼¶.org" "/usr/bin/enclient.rb" "~/dev" "~/.emacs.d/elpa/geeknote-20160717.1249/geeknote-autoloads.el" "/mnt/vfat/diary/2020-05-30" "~/orgmode-blog/index.html" "~/.emacs.d/elpa/markdown-mode-20200526.1503/markdown-mode-autoloads.el" "~/emacs-evernote-mode-mod/README.md" "~/.emacs.d/elpa/multi-term-20200514.428/multi-term-autoloads.el" "~/d-term.py" "~/.emacs.d/elpa/calfw-org-20160303.258/calfw-org-autoloads.el" "~/.emacs.d/elpa/calfw-cal-20170320.1206/calfw-cal-autoloads.el" "~/.emacs.d/elpa/calfw-20180118.45/calfw-autoloads.el" "~/orgmode-blog/src/Blog/‘×Ö‘Ìå‘´¦‘Àí‘±¸‘Íü‘Â¼.org" "~/orgmode-blog/src/‘×Ö‘Ìå‘´¦‘Àí‘±¸‘Íü‘Â¼.org" "~/orgmode-blog/src/2020-05-29t2321.org" "~/.gtd/agenda/ideas.org" "~/orgmode-blog/src/Blog/‘Èç‘ºÎ‘°Ñ‘Ò»‘¸ö‘ÈÕ‘ÎÄ‘×Ö‘Ìå‘¸Ä‘Ôì‘³É‘·±‘Ìå‘ÖÐ‘ÎÄ‘×Ö‘Ìå.org" "~/orgmode-blog/src/Blog/dm200debian.org" "~/.tmux.conf~" "~/.pureline.conf"))
+(setq file-name-history '("~/.tmux.conf" "~/.yong/yong.ini" "~/yong-master/common/main.c" "~/yong-master/im/fbterm.c" "~/.emacs.d/settings/hydra-settings.el" "~/.emacs.d/bookmarks" "~/.gtd/agenda/todo.org" "~/orgmode-blog/src/Notes/‘ÀÎ‘É§.org" "~/.gtd/journal/20200601" "~/.gtd/journal/20200604" "~/.pureline.conf" "~/.emacs.d/elpa/ir-black-theme-20130303.755/ir-black-theme.el" "~/.emacs.d/init.el" "~/.emacs.d/elpa/solarized-theme-20200411.1026/solarized-theme-autoloads.el" "~/.emacs.d/elpa/ibuffer-sidebar-20180219.131/ibuffer-sidebar-autoloads.el" "~/.emacs.d/elpa/all-the-icons-ibuffer-20200319.1625/all-the-icons-ibuffer-autoloads.el" "~/orgmode-blog/src/Tech/" "~/.emacs.d/elpa/spaceline-all-the-icons-20190325.1602/spaceline-all-the-icons-autoloads.el" "~/.emacs.d/elpa/spaceline-20191230.1221/spaceline-autoloads.el" "~/.emacs.d/elpa/powerline-20200105.2053/powerline-autoloads.el" "~/.emacs.d/elpa/s-20180406.808/s-autoloads.el" "~/.emacs.d/elpa/all-the-icons-dired-20200403.1018/all-the-icons-dired-autoloads.el" "~/Downloads/autumnc.github.io/.git/COMMIT_EDITMSG" "~/orgmode-blog/src/Tech/kindle‘×ö‘Êé‘±¸‘Íü.org" "~/orgmode-blog/src/digest/‘Úë‘Óà‘´Ô‘¿¼.org" "~/bin/imswitcheng" "~/bin/imswitchback" "~/" "~/.emacs.d/settings/plugins-setting.el" "~/.emacs.d/settings/modes-setting.el" "~/.emacs.d/settings/awesome-tray.el" "~/uinput-injector/LICENSE" "~/.emacs.d/settings/org-settings.el" "~/.gtd/agenda/projects.org" "~/.gtd/agenda/idea.org" "~/.emacs.d/elpa/darkroom-0.3/darkroom-autoloads.el" "~/orgmode-blog/src/Tech/dm200debian.org" "~/.fonts.conf" "~/fbterm-1.7/fbterm-1.7/src/lib/wcwidth.cpp" "~/.emacs.d/settings/eaw.el" "~/.emacs.d/elpa/org-bullets-20200317.1740/org-bullets-autoloads.el" "~/.emacs.d/elpa/olivetti-20200601.1107/olivetti-autoloads.el" "~/.emacs.d/" "~/orgmode-blog/src/about.org" "~/.w3m/w3mtmp5983-1" "~/.emacs.d/settings/general-settings.el" "~/.emacs.d/settings/" "~/orgmode-blog/src/index.org" "~/.emacs.d/elpa/dired-subtree-20180922.1615/dired-subtree-autoloads.el" "~/bin/imswitchon" "~/bin/imswitchoff" "~/imswitch" "~/bin/imswitch" "~/.fbtermrcbak" "~/.fbtermrc" "~/.emacs.d/settings/pyim-settings.el" "~/.emacs.d/elpa/dired-narrow-20181114.1723/dired-narrow-autoloads.el" "~/.emacs.d/elpa/dired-hacks-utils-20190522.950/dired-hacks-utils-autoloads.el" "~/.emacs.d/elpa/dash-20200524.1947/dash-autoloads.el" "~/.emacs.d/elpa/which-key-20200216.1350/which-key-autoloads.el" "~/.gtd/journal/20200531" "~/.gtd/journal/20200525" "~/test" "~/.emacs.d/elpa/all-the-icons-20200526.751/all-the-icons-autoloads.el" "~/fbterm-1.7/fbterm-1.7/src/fbconfig.cpp" "~/fbterm-1.7/fbterm-1.7/src/fbshell.h" "~/fbterm-1.7/fbterm-1.7/src/fbshell.cpp" "~/.w3m/w3mtmp1717-2" "~/fbterm-master-bak/src/lib/wcwidth.cpp" "~/fbterm-master/src/lib/wcwidth.cpp" "~/fbterm/fbterm-1.7/src/lib/wcwidth.cpp" "~/orgmode-blog/src/digest/‘¿´‘²»‘¼û‘µÄ‘³Ç‘ÊÐ.org" "~/yong-master/common/common.c" "~/uinput-injector/uinput-inject.c" "~/uinput-injector/uinput-inject" "~/uinput-injector/uinput-key.c" "~/orgmode-blog/src/digest.org" "~/orgmode-blog/src/tech.org" "~/orgmode-blog/src/Blog/‘ÀÎ‘É§.org" "~/orgmode-blog/src/digest/‘Â³‘Ã×.org" "~/orgmode-blog/src/digest/‘ÇÙ‘Ê·.org" "~/orgmode-blog/src/digest/‘ºº‘Êé‘ÐÂ‘×¢.org" "~/orgmode-blog/src/digest/‘ÔÓ‘³­.org" "~/orgmode-blog/src/digest/‘Ö¾‘¹Ö‘Àà.org" "~/orgmode-blog/src/digest/‘Ø¥‘¶þ‘Ê·‘Ôý‘¼Ç.org" "~/orgmode-blog/src/digest/‘ÈÝ‘Õ«‘Ëæ‘±Ê.org" "~/orgmode-blog/src/digest/‘ÖÜ‘Ò×‘¼¯‘×¢.org" "~/orgmode-blog/src/digest/‘Åå‘Ë÷‘°¢.org" "~/orgmode-blog/src/digest/kindle‘×ö‘Êé‘±¸‘Íü.org" "~/orgmode-blog/src/Blog/‘ÇØ‘ºº‘¾ô‘¼¶.org" "/usr/bin/enclient.rb" "~/dev" "~/.emacs.d/elpa/geeknote-20160717.1249/geeknote-autoloads.el" "/mnt/vfat/diary/2020-05-30" "~/orgmode-blog/index.html" "~/.emacs.d/elpa/markdown-mode-20200526.1503/markdown-mode-autoloads.el" "~/emacs-evernote-mode-mod/README.md" "~/.emacs.d/elpa/multi-term-20200514.428/multi-term-autoloads.el" "~/d-term.py"))
 
 ;; Buffer section -- buffers listed in same order as in buffer list:
 (desktop-create-buffer 208
-  nil
-  "dm200"
-  'dired-mode
+  "/home/dm200/.tmux.conf"
+  ".tmux.conf"
+  'conf-space-mode
   '(pangu-spacing-mode override-global-mode which-key-mode)
-  3069
+  645
+  '(618 nil)
+  nil
+  nil
+  '((buffer-display-time 24281 522 516323 849000) (buffer-file-coding-system . utf-8-unix) (overwrite-mode))
+  '((mark-ring (517 705 517 804 517 1637))))
+
+(desktop-create-buffer 208
+  "/home/dm200/.yong/yong.ini"
+  "yong.ini"
+  'conf-unix-mode
+  '(pangu-spacing-mode override-global-mode which-key-mode)
+  1200
   '(nil nil)
-  t
-  '("/home/dm200/")
-  '((buffer-display-time 24278 28799 543453 522000))
+  nil
+  nil
+  '((buffer-display-time 24281 246 979153 220000) (buffer-file-coding-system . utf-8-with-signature-unix))
+  '((mark-ring nil)))
+
+(desktop-create-buffer 208
+  "/home/dm200/yong-master/common/main.c"
+  "main.c"
+  'c-mode
+  '(abbrev-mode pangu-spacing-mode override-global-mode rainbow-delimiters-mode which-key-mode)
+  26479
+  '(26666 nil)
+  nil
+  nil
+  '((buffer-display-time 24281 229 215350 102000) (buffer-file-coding-system . utf-8-unix) (overwrite-mode))
+  '((mark-ring (26580 26690))))
+
+(desktop-create-buffer 208
+  "/home/dm200/.gtd/agenda/todo.org"
+  "todo.org"
+  'org-mode
+  '(pangu-spacing-mode override-global-mode which-key-mode org-indent-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-display-time 24281 195 51509 248000) (buffer-file-coding-system . utf-8-unix) (overwrite-mode) (truncate-lines))
   '((mark-ring nil)))
 
