@@ -4,7 +4,7 @@ cd /home/dm200/blog/public
 git add .
 git commit -m "update"
 git push
-cd /home/dm200/blog/content-org/
+cd /home/dm200/blog/
 git add .
 git commit -m "update"
 git push
