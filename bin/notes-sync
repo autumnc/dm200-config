@@ -1,11 +1,11 @@
 #/bin/sh
 current_dir=`pwd`
-cd /home/dm200/orgmode-blog/
+cd /home/dm200/blog/public
 git add .
 git commit -m "update"
 git push
-#cd /home/dm200/orgmode-blog/src/
-#git add .
-#git commit -m "update"
-#git push
+cd /home/dm200/blog/content-org/
+git add .
+git commit -m "update"
+git push
 cd $current_dir

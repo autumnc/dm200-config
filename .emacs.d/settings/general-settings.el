@@ -34,6 +34,8 @@
 (setq system-time-locale "C")
 ;;自动保存文件管理
 (setq backup-directory-alist (quote (("." . "~/.emacs-backups"))))
+;;all-the-icons图标问题
+(setq inhibit-compacting-font-caches t)
 ;;--------------------------------------
 
 ;;编码问题
@@ -57,7 +59,7 @@
 (global-set-key [f1] 'calendar) ;;F1日历与日志
 (global-set-key [f2] 'undo) ;;F2撤销
 (global-set-key [f3] 'kill-this-buffer) ;;F3关闭当前buffer
-(global-set-key [f10] 'buffer-menu) ;;F10打开buffer清单
+(global-set-key [f10] 'ibuffer) ;;F10打开buffer清单
 (global-set-key [f9] 'neotree-toggle) ;;F9打开neotree
 ;;改变set-mark的快捷键
 (global-unset-key (kbd "C-SPC"))  

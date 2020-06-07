@@ -13,6 +13,10 @@
 (add-hook 'org-mode-hook 'org-mode-my-init)
 ;;--------------------------------------
 
+;; 添加 Org-mode 文本内语法高亮
+(setq org-src-fontify-natively t)
+;;--------------------------------------
+
 ;;org-bullets
 (use-package org-bullets)
 ;;--------------------------------------
@@ -116,6 +120,12 @@
   :config
   (add-to-list 'org-structure-template-alist
 	       '("m" "#+TITLE: \n#+OPTIONS: ^:nil _:nil f:nil \\n:t toc:t num:t\n#+STARTUP: showeverything"))
+  (add-to-list 'org-structure-template-alist
+	       '("n" "#+TITLE:\n#+HUGO_BASE_DIR: ~/blog\n#+HUGO_SECTION: posts\n#+DATE:\n#+HUGO_AUTO_SET_LASTMOD: t\n#+HUGO_TAGS:笔记\n#+HUGO_CATEGORIES:笔记\n#+HUGO_DRAFT: false"))
+    (add-to-list 'org-structure-template-alist
+	       '("d" "#+TITLE:\n#+HUGO_BASE_DIR: ~/blog\n#+HUGO_SECTION: posts\n#+DATE:\n#+HUGO_AUTO_SET_LASTMOD: t\n#+HUGO_TAGS:摘抄\n#+HUGO_CATEGORIES:摘抄\n#+HUGO_DRAFT: false"))
+    (add-to-list 'org-structure-template-alist
+	       '("t" "#+TITLE:\n#+HUGO_BASE_DIR: ~/blog\n#+HUGO_SECTION: posts\n#+DATE:\n#+HUGO_AUTO_SET_LASTMOD: t\n#+HUGO_TAGS:技术\n#+HUGO_CATEGORIES:技术\n#+HUGO_DRAFT: false"))
 ;;Tags设定
   (setq org-tag-alist '((:startgroup . nil)
                       ("@摘抄" . nil)
@@ -132,3 +142,8 @@
   )
 ;;--------------------------------------
 
+;;博客设置
+(use-package ox-hugo
+  :after ox
+  :config
+  (org-hugo-auto-export-mode))

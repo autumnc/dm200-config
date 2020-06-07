@@ -1,6 +1,10 @@
 (provide 'plugins-setting)
 
+(use-package session)
+(add-hook 'after-init-hook 'session-initialize)
+(desktop-save-mode t)
 ;;--------------------------------------
+
 (use-package evernote-mode)
 (use-package all-the-icons)
 
@@ -16,8 +20,8 @@
   :defer t
   :commands (deft)
   :config
-  (setq deft-directory "~/orgmode-blog/src"
-	deft-extensions '("md" "org")
+  (setq deft-directory "~/blog/content-org/"
+	deft-extensions '("org")
 	deft-recursive t
 	deft-default-extension "org"
 	deft-use-filename-as-title nil
@@ -77,4 +81,12 @@
   :defer 0.2
   :delight
   :config (which-key-mode))
+;;--------------------------------------
 
+;;modeline设置
+(use-package smart-mode-line)
+(smart-mode-line-enable)
+(use-package mini-modeline
+  :after smart-mode-line
+  :config
+  (mini-modeline-mode t))

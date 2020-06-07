@@ -33,7 +33,7 @@ Buf: _m_:  k_:  _]_:  _[_:  _TAB_:  ⎮ _u_:  _s_:  _n_: �
 	     (interactive)
 	     (switch-to-buffer (other-buffer (current-buffer) 1))))
   ("SPC" org-toggle-checkbox)
-  ("t" org-todo exit t)
+  ("t" org-todo :exit t)
   ("l" linum-mode :toggle t)
   ("u" undo)
   ("<f11>" nil)
@@ -74,7 +74,7 @@ Buf: _m_:  k_:  _]_:  _[_:  _TAB_:  ⎮ _u_:  _s_:  _n_: �
 			    :foreign-keys warn
 			    :color amaranth
 			    :hint nil)
-     "vi"
+     ""
    ("j" next-line)
    ("<down>" next-line)
    ("k" previous-line)
@@ -87,8 +87,8 @@ Buf: _m_:  k_:  _]_:  _[_:  _TAB_:  ⎮ _u_:  _s_:  _n_: �
    ("<home>" beginning-of-line)
    ("$" move-end-of-line)
    ("<end>" move-end-of-line)
-   ("<prior>" scroll-down "scroll down")
-   ("<next>" scroll-up "scroll up")
+   ("<prior>" scroll-down)
+   ("<next>" scroll-up)
    ("SPC" org-toggle-checkbox)
    ("t" org-todo)
    ("RET" org-todo :exit t)
@@ -100,7 +100,7 @@ Buf: _m_:  k_:  _]_:  _[_:  _TAB_:  ⎮ _u_:  _s_:  _n_: �
    ("G" end-of-buffer)
    (":" (progn (call-interactively 'eval-expression)))
    ("r" recenter-top-bottom)
-   ("!" shell-command "shell")
+   ("!" shell-command)
    ("[" org-backward-paragraph)
    ("]" org-forward-paragraph)
    ("dd" kill-whole-line)
@@ -281,8 +281,10 @@ _vr_ reset      ^^                       ^^                 ^^
 				     :post (shell-command "/home/dm200/bin/imswitchback")
 				     :hint nil)
   "
-_s_rc  _c_enter  _q_uote      _l_atex   _e_xample  _i_ndex:  _a_scii 
-_h_tml _v_erse   _I_NCLUDE:   _L_aTeX:  _H_TML:    _A_SCII:  _m_atadata
+_s_rc      _c_enter  _q_uote   _l_atex   
+_e_xample  _a_scii   _h_tml    _v_erse   
+_i_ndex:   _I_NCLUDE: _L_aTeX:  _H_TML:   _A_SCII:  
+_n_otes    _t_ech    _d_igest  _m_atadata
 "
   ("s" (hot-expand "<s"))
   ("e" (hot-expand "<e"))
@@ -296,6 +298,9 @@ _h_tml _v_erse   _I_NCLUDE:   _L_aTeX:  _H_TML:    _A_SCII:  _m_atadata
   ("i" (hot-expand "<i"))
   ("I" (hot-expand "<I"))
   ("m" (hot-expand "<m"))
+  ("n" (hot-expand "<n"))
+  ("d" (hot-expand "<d"))
+  ("t" (hot-expand "<t"))
   ("H" (hot-expand "<H"))
   ("A" (hot-expand "<A"))
   ("<" self-insert-command "ins")
