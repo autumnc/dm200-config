@@ -1,9 +1,10 @@
 (provide 'hydra-settings)
+
 ;;hydra设置
 ;;主功能菜单
 (defhydra hydra-hick (:color pink
 			     :pre (shell-command "/home/dm200/bin/imswitcheng")
-			     :post (shell-command "/home/dm200/bin/imswitchback")
+;			     :post (shell-command "/home/dm200/bin/imswitchback")
                              :hint nil)
 "
 ^^^^^^^^⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
@@ -16,7 +17,7 @@ Buf: _m_:  k_:  _]_:  _[_:  _TAB_:  ⎮ _u_:  _s_:  _n_: �
   ("f" dired :exit t)
   ("a" org-agenda :exit t)
   ("w" w3m :exit t)
-  ("e" evernote-browsing-list-notebooks exit t)
+  ("e" evernote-browsing-list-notebooks :exit t)
   ("c" org-capture :exit t)
   ("j" org-journal-new-entry :exit t)
   ("m" buffer-menu :exit t)
@@ -34,7 +35,7 @@ Buf: _m_:  k_:  _]_:  _[_:  _TAB_:  ⎮ _u_:  _s_:  _n_: �
 	     (switch-to-buffer (other-buffer (current-buffer) 1))))
   ("SPC" org-toggle-checkbox)
   ("t" org-todo :exit t)
-  ("l" linum-mode :toggle t)
+  ("l" linum-mode :toggle t :exit t)
   ("u" undo)
   ("<f11>" nil)
   ("<next>" nil)
@@ -42,6 +43,7 @@ Buf: _m_:  k_:  _]_:  _[_:  _TAB_:  ⎮ _u_:  _s_:  _n_: �
   ("q" quit-window :color blue))
 
 (global-set-key (kbd "<prior>") 'hydra-hick/body)
+;;--------------------------------------
 
 ;;分割窗口
 (defhydra hydra-split
@@ -60,6 +62,7 @@ Buf: _m_:  k_:  _]_:  _[_:  _TAB_:  ⎮ _u_:  _s_:  _n_: �
   ("<next>" nil)
   ("<prior>" nil)
   ("c" nil))
+;;--------------------------------------
 
 ;;仿 vi模式
 (defun hydra-vi/pre ()
@@ -119,6 +122,7 @@ Buf: _m_:  k_:  _]_:  _[_:  _TAB_:  ⎮ _u_:  _s_:  _n_: �
    ("a" nil)
    ("c" nil)))
 (hydra-set-property 'hydra-vi :verbosity 1)
+;;--------------------------------------
 
 ;;goto菜单
 (defhydra hydra-goto-line (goto-map ""
@@ -128,6 +132,7 @@ Buf: _m_:  k_:  _]_:  _[_:  _TAB_:  ⎮ _u_:  _s_:  _n_: �
   ("g" goto-line "go")
   ("m" set-mark-command "mark" :bind nil)
   ("q" nil "quit"))
+;;--------------------------------------
 
 ;;org菜单
 (defhydra hydra-org (:foreign-keys run
@@ -171,6 +176,7 @@ Gtd\: _a_: _td_: _b_: SPC_: _d_: _I_: _s_: _ts_: _tg_:�
   ("<prior>" nil)
   ("<next>" nil)
   ("<f11>" nil ))
+;;--------------------------------------
 
 ;;deft菜单
 (defhydra hydra-deft
@@ -194,7 +200,9 @@ Gtd\: _a_: _td_: _b_: SPC_: _d_: _I_: _s_: _ts_: _tg_:�
   ("<next>" nil)
   ("<f11>" nil)
   ("<prior>" nil))
+;;--------------------------------------
 
+;; agenda菜单
 ;; Hydra for org agenda (graciously taken from Spacemacs)
 (defhydra hydra-org-agenda (:hint none
 				  :pre (shell-command "/home/dm200/bin/imswitcheng")
@@ -274,6 +282,7 @@ _vr_ reset      ^^                       ^^                 ^^
   ("gd" org-agenda-goto-date)
   ("." org-agenda-goto-today)
   ("gr" org-agenda-redo))
+;;--------------------------------------
 
 ;;org-mode的插入模板设置
 (defhydra hydra-org-template (:color blue
@@ -310,6 +319,7 @@ _n_otes    _t_ech    _d_igest  _m_atadata
   "Expand org template."
   (insert str)
   (org-try-structure-completion))
+;;--------------------------------------
 
 ;;buffer-menu
 (defhydra hydra-buffer-menu (:color pink
@@ -346,6 +356,7 @@ _~_: modified
   ("q" quit-window "quit" :color blue :exit t))
 
 (define-key Buffer-menu-mode-map (kbd "<next>") 'hydra-buffer-menu/body)
+;;--------------------------------------
 
 ;;Dired 菜单
 (defhydra hydra-dired (:hint nil

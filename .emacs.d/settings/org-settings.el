@@ -1,4 +1,5 @@
 (provide 'org-settings)
+
 ;;org-mode设置
 ;;启动设定
 (defun org-mode-my-init ()
@@ -146,4 +147,18 @@
 (use-package ox-hugo
   :after ox
   :config
-  (org-hugo-auto-export-mode))
+;  (org-hugo-auto-export-mode))
+)
+
+;; howm
+(add-hook 'org-mode-hook 'howm-mode)
+(add-to-list 'auto-mode-alist '("\\.howm$" . org-mode))
+(add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
+(setq howm-view-title-header "*") 
+(global-unset-key (kbd "C-x ,"))
+(setq howm-prefix (kbd "C-x ,"))
+(eval-after-load "howm-mode"
+  '(progn
+    (define-key howm-mode-map (kbd "C-c C-c") nil)))
+;(setq howm-use-color nil)
+

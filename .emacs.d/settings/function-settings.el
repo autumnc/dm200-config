@@ -1,4 +1,5 @@
 (provide 'function-settings)
+
 ;; 关于没有选中区域,则默认为选中整行的advice
 ;; 默认情况下M-w复制一个区域，但是如果没有区域被选中，则复制当前行
 (defadvice kill-ring-save (before slickcopy activate compile)

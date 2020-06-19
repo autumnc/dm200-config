@@ -1,13 +1,20 @@
 (provide 'plugins-setting)
 
+;;session保存编辑状态
 (use-package session)
 (add-hook 'after-init-hook 'session-initialize)
 (desktop-save-mode t)
 ;;--------------------------------------
 
+;;evernote模式
 (use-package evernote-mode)
-(use-package all-the-icons)
+;;--------------------------------------
 
+;;插入图标字体
+(use-package all-the-icons)
+;;--------------------------------------
+
+;;侧边栏文件管理
 (use-package neotree
   :defer t
   :ensure t
@@ -16,6 +23,7 @@
    neo-theme 'nerd2))
 ;;--------------------------------------
 
+;;笔记搜索与整理
 (use-package deft
   :defer t
   :commands (deft)
@@ -25,7 +33,7 @@
 	deft-recursive t
 	deft-default-extension "org"
 	deft-use-filename-as-title nil
-	deft-auto-save-interval 4
+	deft-auto-save-interval 6
 	deft-auto-save-silent 1
 	deft-use-filter-string-for-filename t
 	deft-file-naming-rules '((noslash . "-")
@@ -70,23 +78,38 @@
   :config
   (define-key dired-mode-map (kbd "<next>") 'hydra-dired/body))
 (use-package dired-subtree
+  :defer t
   :bind (:map dired-mode-map
               ("TAB" . dired-subtree-cycle)
               ("SPC" . dired-subtree-toggle)))
 
 ;;--------------------------------------
 
-;;Which-key
+;;Which-key快捷键提示
 (use-package which-key
   :defer 0.2
   :delight
   :config (which-key-mode))
 ;;--------------------------------------
 
-;;modeline设置
+;;modeline设置最小化
 (use-package smart-mode-line)
 (smart-mode-line-enable)
 (use-package mini-modeline
   :after smart-mode-line
   :config
   (mini-modeline-mode t))
+;;--------------------------------------
+
+;; howm
+(require 'howm)
+(global-set-key "\C-x,," 'howm-menu)
+(setq howm-home-directory "~/blog/content-org/")
+;(setq howm-keyword-file (concat howm-home-directory ".howm-keys"))
+;(setq howm-file-name-format "%Y/%m/%d/%Y%m%d-%H%M%S.howm")
+;(setq howm-menu-file (concat howm-home-directory "menu.txt"))
+(setq howm-history-file (concat howm-home-directory ".howm-history"))
+(autoload 'howm-menu "howm-mode" "Hitori Otegaqru Wiki Modoki" t)
+
+;;color-rg
+(use-package color-rg)

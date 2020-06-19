@@ -1,4 +1,5 @@
 (provide 'modes-setting)
+
 ;;中英文混排
 (use-package pangu-spacing
   :config

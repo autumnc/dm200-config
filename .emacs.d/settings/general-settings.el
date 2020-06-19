@@ -50,9 +50,9 @@
 (set-terminal-coding-system 'utf-8-unix)
 (setq locale-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
+;;解决字符模糊宽度问题
 (require 'eaw)
 (eaw-fullwidth)
-
 ;;--------------------------------------
 
 ;;快捷键
@@ -64,3 +64,10 @@
 ;;改变set-mark的快捷键
 (global-unset-key (kbd "C-SPC"))  
 (global-set-key (kbd "M-SPC") 'set-mark-command)  
+;;--------------------------------------
+
+;;自动保存设置
+(require 'auto-save)
+(auto-save-enable)
+(setq auto-save-slient t)
+(setq auto-save-idle 6)

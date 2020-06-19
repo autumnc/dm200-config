@@ -15,19 +15,20 @@
  '(dired-ls-F-marks-symlinks nil)
  '(dired-recursive-copies (quote always))
  '(evernote-developer-token
-   "S=s65:U=e9b8ad:E=172896456fc:C=1726557cf28:P=1cd:A=en-devtoken:V=2:H=82d73eee16a224f7b4c307cad315eff8")
+   "S=s65:U=e9b8ad:E=172b37f864c:C=1728f72ffd0:P=1cd:A=en-devtoken:V=2:H=fde460ba85c843c5e351d3fa857e3641")
  '(evernote-username "yangwenzu")
+ '(howm-directory "~/blog/content-org/")
  '(neo-smart-open t t)
- '(org-journal-date-format "<%A, %Y %B %d>")
- '(org-journal-dir "~/.gtd/journal/")
- '(org-journal-file-format "%Y%m%d")
+ '(org-journal-date-format "<%A, %Y %B %d>" t)
+ '(org-journal-dir "~/.gtd/journal/" t)
+ '(org-journal-file-format "%Y%m%d" t)
  '(package-archives
    (quote
     (("melpa" . "http://elpa.emacs-china.org/melpa/")
      ("gnu" . "https://elpa.emacs-china.org/gnu/"))))
  '(package-selected-packages
    (quote
-    (ox-hugo mini-modeline smart-mode-line-atom-one-dark-theme smart-mode-line all-the-icons-ibuffer org-bullets dired-subtree which-key all-the-icons markdown-mode multi-term session real-auto-save-mode w3m org-journal rainbow-delimiters rainbow-mode posframe htmlize hydra writeroom-mode ir-black-theme neotree deft pangu-spacing pyim use-package diminish)))
+    (howm ox-hugo mini-modeline smart-mode-line-atom-one-dark-theme smart-mode-line all-the-icons-ibuffer org-bullets dired-subtree which-key all-the-icons markdown-mode multi-term session real-auto-save-mode w3m org-journal rainbow-delimiters rainbow-mode posframe htmlize hydra writeroom-mode ir-black-theme neotree deft pangu-spacing pyim use-package diminish)))
  '(session-use-package t nil (session)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -43,11 +44,6 @@
 
 ;;加载通用设置
 (require 'general-settings)
-;;自动保存设置
-(require 'auto-save)
-(auto-save-enable)
-(setq auto-save-slient t)
-(setq auto-save-idle 3)
 ;;加载功能设定
 (require 'function-settings)
 ;;加载模式设定
