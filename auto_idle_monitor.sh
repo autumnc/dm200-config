@@ -28,6 +28,11 @@ get_idle_time() {
         last=$atime
         [ "$mtime" -gt "$last" ] && last=$mtime
 
+        # Skip timestamps that are clearly invalid: epoch 0 (boot before RTC
+        # sync) or in the future (clock skew).
+        [ "$last" -le 0 ] && continue
+        [ "$last" -gt "$now" ] && continue
+
         [ "$last" -gt "$newest" ] && newest=$last
         found=1
     done
